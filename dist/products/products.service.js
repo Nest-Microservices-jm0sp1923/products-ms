@@ -9,6 +9,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.ProductsService = void 0;
 const common_1 = require("@nestjs/common");
 const prisma_1 = require("../../generated/prisma/index.js");
+const microservices_1 = require("@nestjs/microservices");
 let ProductsService = class ProductsService extends prisma_1.PrismaClient {
     logger = new common_1.Logger('ProductsService');
     onModuleInit() {
@@ -42,7 +43,10 @@ let ProductsService = class ProductsService extends prisma_1.PrismaClient {
             where: { id: id, available: true },
         });
         if (!product) {
-            throw new common_1.NotFoundException(`Product Whit Id ${id} no found`);
+            throw new microservices_1.RpcException({
+                message: `Product Whit Id ${id} no found`,
+                status: common_1.HttpStatus.BAD_REQUEST,
+            });
         }
         return product;
     }
@@ -59,8 +63,8 @@ let ProductsService = class ProductsService extends prisma_1.PrismaClient {
         return this.product.update({
             where: { id },
             data: {
-                available: false
-            }
+                available: false,
+            },
         });
     }
 };

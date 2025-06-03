@@ -31,13 +31,13 @@ let ProductsController = class ProductsController {
         return this.productsService.findAll(paginationDto);
     }
     findOne(id) {
-        return this.productsService.findOne(+id);
+        return this.productsService.findOne(id);
     }
     update(updateProductDto) {
         return this.productsService.update(updateProductDto.id, updateProductDto);
     }
     remove(id) {
-        return this.productsService.remove(+id);
+        return this.productsService.remove(id);
     }
 };
 exports.ProductsController = ProductsController;
@@ -57,9 +57,9 @@ __decorate([
 ], ProductsController.prototype, "findAll", null);
 __decorate([
     (0, microservices_1.MessagePattern)({ cmd: 'find_one_product' }),
-    __param(0, (0, microservices_1.Payload)('id')),
+    __param(0, (0, microservices_1.Payload)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "findOne", null);
 __decorate([
@@ -71,9 +71,9 @@ __decorate([
 ], ProductsController.prototype, "update", null);
 __decorate([
     (0, microservices_1.MessagePattern)({ cmd: 'delete_product' }),
-    __param(0, (0, microservices_1.Payload)('id')),
+    __param(0, (0, microservices_1.Payload)('id', common_1.ParseIntPipe)),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "remove", null);
 exports.ProductsController = ProductsController = __decorate([

@@ -28,7 +28,7 @@ export declare class ProductsController {
             lastPage: number;
         };
     }>;
-    findOne(id: string): Promise<{
+    findOne(id: number): Promise<{
         id: number;
         name: string;
         price: number;
@@ -44,7 +44,7 @@ export declare class ProductsController {
         createdAt: Date;
         updatedAt: Date;
     }>;
-    remove(id: string): Promise<{
+    remove(id: number): Promise<{
         id: number;
         name: string;
         price: number;
