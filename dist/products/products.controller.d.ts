@@ -6,18 +6,18 @@ export declare class ProductsController {
     private readonly productsService;
     constructor(productsService: ProductsService);
     create(createProductDto: CreateProductDto): import("generated/prisma").Prisma.Prisma__ProductClient<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(paginationDto: PaginationDto): Promise<{
         data: {
-            id: number;
             name: string;
             price: number;
+            id: number;
             available: boolean;
             createdAt: Date;
             updatedAt: Date;
@@ -29,27 +29,35 @@ export declare class ProductsController {
         };
     }>;
     findOne(id: number): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
     update(updateProductDto: UpdateProductDto): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
     remove(id: number): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
+    validateProduct(ids: number[]): Promise<{
+        name: string;
+        price: number;
+        id: number;
+        available: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }[]>;
 }

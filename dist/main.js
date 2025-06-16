@@ -6,11 +6,11 @@ const common_1 = require("@nestjs/common");
 const config_1 = require("./config");
 const microservices_1 = require("@nestjs/microservices");
 async function bootstrap() {
-    const logger = new common_1.Logger('Main');
+    const logger = new common_1.Logger('Main-ProductsMicroServices');
     const app = await core_1.NestFactory.createMicroservice(app_module_1.AppModule, {
-        transport: microservices_1.Transport.TCP,
+        transport: microservices_1.Transport.NATS,
         options: {
-            port: config_1.envs.PORT,
+            servers: config_1.envs.NATS_SERVERS,
         },
     });
     app.useGlobalPipes(new common_1.ValidationPipe({

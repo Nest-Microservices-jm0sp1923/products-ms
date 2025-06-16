@@ -7,18 +7,18 @@ export declare class ProductsService extends PrismaClient implements OnModuleIni
     private readonly logger;
     onModuleInit(): void;
     create(createProductDto: CreateProductDto): import("generated/prisma").Prisma.Prisma__ProductClient<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }, never, import("generated/prisma/runtime/library").DefaultArgs, import("generated/prisma").Prisma.PrismaClientOptions>;
     findAll(paginationDto: PaginationDto): Promise<{
         data: {
-            id: number;
             name: string;
             price: number;
+            id: number;
             available: boolean;
             createdAt: Date;
             updatedAt: Date;
@@ -30,27 +30,35 @@ export declare class ProductsService extends PrismaClient implements OnModuleIni
         };
     }>;
     findOne(id: number): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
     update(id: number, updateProductDto: UpdateProductDto): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
     remove(id: number): Promise<{
-        id: number;
         name: string;
         price: number;
+        id: number;
         available: boolean;
         createdAt: Date;
         updatedAt: Date;
     }>;
+    validateProducts(ids: number[]): Promise<{
+        name: string;
+        price: number;
+        id: number;
+        available: boolean;
+        createdAt: Date;
+        updatedAt: Date;
+    }[]>;
 }

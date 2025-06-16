@@ -39,6 +39,9 @@ let ProductsController = class ProductsController {
     remove(id) {
         return this.productsService.remove(id);
     }
+    validateProduct(ids) {
+        return this.productsService.validateProducts(ids);
+    }
 };
 exports.ProductsController = ProductsController;
 __decorate([
@@ -76,6 +79,13 @@ __decorate([
     __metadata("design:paramtypes", [Number]),
     __metadata("design:returntype", void 0)
 ], ProductsController.prototype, "remove", null);
+__decorate([
+    (0, microservices_1.MessagePattern)({ cmd: 'validate_products' }),
+    __param(0, (0, microservices_1.Payload)()),
+    __metadata("design:type", Function),
+    __metadata("design:paramtypes", [Array]),
+    __metadata("design:returntype", void 0)
+], ProductsController.prototype, "validateProduct", null);
 exports.ProductsController = ProductsController = __decorate([
     (0, common_1.Controller)('products'),
     __metadata("design:paramtypes", [products_service_1.ProductsService])

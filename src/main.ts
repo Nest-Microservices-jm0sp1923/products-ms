@@ -5,14 +5,14 @@ import { envs } from './config';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 
 async function bootstrap() {
-  const logger = new Logger('Main');
+  const logger = new Logger('Main-ProductsMicroServices');
 
   const app = await NestFactory.createMicroservice<MicroserviceOptions>(
     AppModule,
     {
-      transport: Transport.TCP,
+      transport: Transport.NATS,
       options: {
-        port: envs.PORT,
+        servers: envs.NATS_SERVERS,
       },
     },
   );
